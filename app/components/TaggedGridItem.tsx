@@ -1,10 +1,14 @@
 import type {Tagged} from "~/schemas/tagged.schema";
 
 export function TaggedGridItem({ tagged }: { tagged: Tagged }) {
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+    const imageSrc = `${backendUrl}${tagged.img_url}`;
+
     return (
+
         <div className='relative w-full aspect-[9/16] overflow-hidden bg-gray-200'>
             <img
-                src={tagged.img_url}
+                src={imageSrc}
                 alt={tagged.caption || "Reel thumbnail"}
                 className='w-full h-full object-cover'
             />

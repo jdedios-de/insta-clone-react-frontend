@@ -6,6 +6,7 @@ import { PostCard } from "~/components/PostCard";
 export async function loader() {
     try {
         const response = await api.get("/posts");
+
         return postsSchema.parse(response.data);
     } catch (error) {
         console.error("Failed to load posts:", error);

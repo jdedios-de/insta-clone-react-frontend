@@ -2,7 +2,7 @@ import { z } from "zod";
 
 const taggedSchema = z.object({
     id: z.number(),
-    img_url: z.string().url(),
+    img_url: z.string().url().or(z.string()),
     caption: z.string().nullable(),
     tagged_by_user: z.string().nonempty(),
     created_at: z.string(),
